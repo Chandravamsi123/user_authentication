@@ -10,6 +10,8 @@ app.use(express.json())
 
 dotEnv.config()
 
+const PORT=process.env.PORT || 4000
+
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>console.log("mongoDB connected"))
 .catch((error)=>console.log(error)) 
@@ -17,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use("/user",userRoutes)
 
 
-app.listen(4000,()=>{
+app.listen(PORT,()=>{
     console.log("Server running")
 })
 
